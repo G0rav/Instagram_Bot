@@ -11,7 +11,7 @@ Library used:
 
 `!pip install selenium`
 
-#How to use.
+# How to use.
 
 Replace 'Your-Username' and 'Your-Password' with yours login credentials in the super_secret python file. 
 
