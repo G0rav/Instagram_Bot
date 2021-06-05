@@ -70,12 +70,9 @@ def scrap_users(url):
 
 #Function to unfollow or unrequest users
 def unfollow(users, start, end):
-     """
-    Input: users list, start and end index
-    """
     
     for i,user in enumerate(users[start:end], start=1):
-        time.sleep(2)
+        time.sleep(5)
         print('user:',user)
         
         try:
@@ -95,22 +92,27 @@ def unfollow(users, start, end):
 
             try:
                 #following-unfollow
-                time.sleep(1)
+                time.sleep(3)
                 following_button_xpath = '//*[@id="react-root"]/section/main/div/header/section/div[2]/div/div/div[2]/div/span/span[1]/button'      
                 driver.find_element_by_xpath(following_button_xpath).click()
 
             except:
                 pass
 
-            try:                
+            try:
+                #follow_xpath = '//*[@id="react-root"]/section/main/div/header/section/div[2]/div/div/div/button'
+                #if driver.find_element_by_xpath(follow_xpath):
+                    #continue
+                    
+                
                 #unrequest
                 #just to make request vsisible
                 driver.find_element_by_xpath('//*[@id="react-root"]/section/main/div/header/div/div/div/button/img').click() 
-                time.sleep(1)
-                request_xpath = '//*[@id="react-root"]/section/main/div/header/div/div/div/button/img'      
+                time.sleep(2)
+                request_xpath = '//*[@id="react-root"]/section/main/div/header/section/div[2]/div/div'      
                 driver.find_element_by_xpath(request_xpath).click()
-                time.sleep(1)
-                request_button_xpath = '//*[@id="react-root"]/section/main/div/header/section/div[2]/div/div/div/button'
+                time.sleep(2)
+                request_button_xpath = '//*[@id="react-root"]/section/main/div/header/section/div[2]/div/div/button'
                 driver.find_element_by_xpath(request_button_xpath).click()
                 time.sleep(2)
 
@@ -118,10 +120,10 @@ def unfollow(users, start, end):
                 pass
 
             #unfollow
-            time.sleep(1)
+            time.sleep(2)
             xpath = '/html/body/div[5]/div/div/div/div[3]/button[1]'
             unfollow_button = driver.find_element_by_xpath(xpath)
-            time.sleep(1)
+            time.sleep(2)
             unfollow_button.click()
             time.sleep(2)
 
